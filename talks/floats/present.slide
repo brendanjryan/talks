@@ -1,0 +1,84 @@
+Floating Point Numbers
+A brief introduction
+
+Brendan Ryan
+
+* Math!
+
+* Numbers
+
+- Integers: "Whole Numbers" (positive or negative)
+- Natural Numbers: Set of positive integers  (0?)
+- Rational Numbers: a/b where both a and b are natural
+- Irrational Numbers: Can't be expressed as rational. i.e. sqrt(2)
+- Real Numbers: Real U Irrational
+
+* Goal: Real numbers... In Computers
+
+* Binary
+
+- Base 2 Number system
+- Numbers represented by 0 or 1
+- Each "bit" denotes a new base 2 exponent
+
+* Examples:
+.image binary.png
+
+* What about fractions?
+
+* Fixed Point Numbers
+- Split number line
+- Fixed # of bits for each side of decimal point
+- OK solution - but not efficient nor accurate
+(10^-10 smallestand 10^9 largest)
+.image 23.png
+
+* Floating Point Numbers
+- Significand * Exponent
+- Significand: Fixed number of bits, always "starts" with 1
+- Exponent: A *signed* integer allowing a certain range
+.image 13.png
+
+* Subnormal Numbers
+- Used to represent very small numbers
+- Have a "leading 0" instead of a "leading 1"
+- Computations done in software (fp assist) -- very slow
+
+* Demo: Density of Floating Point Numbers
+
+* Demo: Deconstructing a FP Number
+
+* Computational Error
+
+* Machine Epsilon: Smallest number such that float(1+x) > 1
+- Bound by significand (insert example here)
+- Theoretically defines maximum relative error
+.image mach.png
+
+* Floating Point Arithmetic
+
+* Addition?
+- Bring both numbers to the same exponent
+- Do simple addition
+- Round result 😅
+.image add.png
+
+* Demo: Floating Points vs logic
+
+* Demo: Floating points and harmonics
+
+* Subtraction
+- Even scarier than addition errors
+- Subtracting two similar floating point numbers can produce incredibly high errors
+
+* Demo: Catastrophic Cancellation
+
+* WTF
+
+.image angry_monkey.gif 400 _
+
+* What can we do 🤔
+- Not at a whole lot.
+- Be cognizant of what kind of float you are using
+- Decompose floats into integers and handle in business logic for sensitive sums (money etc...)
+- Multiply + Divide instead of subtract
